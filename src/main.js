@@ -15,6 +15,11 @@ function clickPress(event) {
   if (event.key === "Escape") {
     kill()
   }
+
+  // // autocomplete
+  // handle_input();
+
+
 }
 
 async function kill() {
@@ -24,8 +29,12 @@ async function kill() {
 async function handle_input() {
   // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
   await invoke("handle_input", { input: userInputEl.value });
-  // clearn input
+  // clear input
   userInputEl.value = "";
 }
+
+// async function handle_input(key) {
+//   let suggestions = await invoke(autocomplete, { input: userInputEl.value });
+// }
 
 window.clickPress = clickPress;
